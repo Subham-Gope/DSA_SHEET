@@ -29,23 +29,32 @@
 
 /////////////////////////////////////////////////////////////
 
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function (nums, target) {
-  const length = nums.length;
-  const hashMap = new Map();
+var maxArea = function(height) {
+let lp = 0;
+let rp=height.length;
+let maxArea = 0;
 
-  for (i = 0; i < length; i++) {
-    const diff = target - nums[i];
+while(lp<rp) {
+    let lh = height[lp];
+let rh = height[rp];
 
-    if (hashMap.has(diff)) {
-      return [i, hashMap.get(diff)];
-    }
+let minHeight= Math.min(lh, rh);
 
-    hashMap.set(nums[i], i);
-  }
-  return `Not Found`;
+let length = rp-lp;
+
+let area = minHeight * length;
+
+if(maxArea<area) {
+    maxArea = area;
+}
+
+if(lh<rh){
+    lp++;
+} else {
+    rp--
+}
+}
+ 
+ return maxArea;
+
 };

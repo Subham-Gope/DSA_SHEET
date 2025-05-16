@@ -35,11 +35,6 @@
 
 //////////////////////////////////////////////////
 
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
 var twoSum = function (nums, target) {
   const length = nums.length;
   const hashMap = new Map();

@@ -48,3 +48,19 @@ var containsDuplicate = function (nums) {
   }
   return true;
 };
+
+// //////////////////////////////////////////////////////////////////
+
+var containsDuplicate = function (nums) {
+  const len = nums.length;
+  const hashMap = new Map();
+
+  for (let i = 0; i < len; i++) {
+    if (hashMap.has(nums[i])) {
+      return true;
+    } else {
+      hashMap.set(nums[i], i);
+    }
+  }
+  return false;
+};

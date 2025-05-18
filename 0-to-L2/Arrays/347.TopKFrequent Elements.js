@@ -28,3 +28,28 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  const freqMap = {}; // Step 1: Count frequency of each element
+
+    for (let num of nums) {
+        freqMap[num] = (freqMap[num] || 0) + 1;
+    }
+
+    const bucket = Array(nums.length + 1).fill().map(() => []); // Step 2: Bucket where index = frequency
+
+    // Step 3: Place elements into buckets based on frequency
+    for (let num in freqMap) {
+        const freq = freqMap[num];
+        bucket[freq].push(Number(num));
+    }
+
+    const result = [];
+
+    // Step 4: Collect top k frequent elements from highest frequency to lowest
+    for (let i = bucket.length - 1; i >= 0 && result.length < k; i--) {
+        for (let num of bucket[i]) {
+            result.push(num);
+            if (result.length === k) break;
+        }
+    }
+
+    return result;

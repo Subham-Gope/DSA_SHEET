@@ -26,3 +26,53 @@
 // -5 * 104 <= nums[i] <= 5 * 104
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+
+// /**
+//  * @param {number[]} nums
+//  * @return {number[]}
+//  */
+// var sortArray = function(nums) {
+//     const n= nums.length;
+
+//     // Heapify function
+
+// function Heapify(nums,n,i) {
+//         let largest = i;
+//         let leftChild = 2*i+1;
+//         let rightChild = 2*i+2;
+
+//         if(leftChild < n && nums[leftChild] > nums[largest]){
+//             largest = leftChild;
+//         }
+
+// if(rightChild < n && nums[rightChild] > nums[largest]) {
+//     largest = rightChild;
+// }
+
+
+// if(largest !== i ) {
+//     [nums[i], nums[largest]] = [nums[largest], nums[i]];
+// Heapify(nums,n,largest)
+
+// }
+// }
+
+//     ////////////////////////
+
+//     // Building the heap
+
+//     for(let i=Math.floor((n/2)-1); i >=0;i--) {
+//         Heapify(nums,n,i)
+//     }
+// ////////////////////////////////////
+
+// //Max Heap Sorting Phase
+
+// for(let i=n-1; i > 0 ;i--) {
+//     [nums[0],nums[i]]=[nums[i], nums[0]];
+
+//     Heapify(nums, i, 0);
+// }
+// /////////////////////////
+//     return nums;
+// };

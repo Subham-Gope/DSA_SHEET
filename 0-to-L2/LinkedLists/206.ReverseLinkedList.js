@@ -258,6 +258,29 @@ class LinkedList {
     }
     this.head = dummy.next;
   }
+
+  // detecting the cycle start
+  detectCycle(head) {
+    let slow = head;
+    let fast = head;
+
+    // detect if cycle exists
+    while (fast && fast.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+
+      if (slow == fast) {
+        // cycle found now lets find the entry point
+        let entry = head;
+        while (entry !== slow) {
+          entry = entry.next;
+          slow = slow.next;
+        }
+        return entry;
+      }
+    }
+    return null;
+  }
 }
 
 const linkedlist2 = new LinkedList();
